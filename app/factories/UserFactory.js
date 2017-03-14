@@ -5,9 +5,9 @@ app.factory("UserFactory", ($q, $http, FBCreds) => {
     return $q((resolve, reject) => {
       $http.get(`${FBCreds.databaseURL}/products.json`)
       .then((userObject) => {
-        console.log("userObject coming back from $http getter", userObject.data);
-        let userCollection = Object.keys(userObject.data);
-        console.log('userCollection: ', userCollection);
+        // console.log("userObject coming back from $http getter", userObject.data);
+        let userCollection = userObject.data;
+        console.log('userCollection: ', userCollection[0]);
         resolve(userCollection);
       })
       .catch((error) => {

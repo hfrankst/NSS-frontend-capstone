@@ -70,7 +70,7 @@ console.log("LoginCtrl");
             .then ((userCollection) => {
               let collectionLength = Object.keys(userCollection).length;
               if (collectionLength > 0) {
-                // console.log('UID exists', Object.keys(userCollection).length);
+                console.log('UID exists', userCollection);
                 $window.location.href = "#!/home";
               } else {
                 console.log('UID does not exist');
