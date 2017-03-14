@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Discount Grocery Hunting</title>
+	<link rel="stylesheet" type="text/css" href="/lib/node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="/css/main.css">
+</head>
+<body ng-app="Bargains">
+
+<div class="container-fluid">
+	<div class="row">
+		<div ng-view></div>
+	</div>
+</div>
+
+
+<!-- ANGULAR FILES -->
+<script src="/lib/node_modules/angular/angular.min.js"></script>
+<script src="/lib/node_modules/angular-route/angular-route.min.js"></script>
+<script src="/lib/node_modules/jquery/dist/jquery.min.js"></script>
+<script src="/lib/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/lib/node_modules/firebase/firebase.js"></script>
+
+<!-- APP FILES -->
+<script src="/app/app.js"></script>
+<script src="/app/values/fbcreds.js"></script>
+
+<!-- FACTORIES -->
+<script src="/app/factories/AuthFactory.js"></script>
+<script src="/app/factories/FilterFactory.js"></script>
+<script src="/app/factories/UserFactory.js"></script>
+
+<!-- CONTROLLERS -->
+<script src="/app/controllers/LoginCtrl.js"></script>
+<script src="/app/controllers/HomeCtrl.js"></script>
+
+</body>
+</html>

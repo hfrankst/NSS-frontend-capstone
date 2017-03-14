@@ -1,0 +1,19 @@
+
+body {
+	margin: 1em;
+	background-color: #D3D3D3;
+	font-family: 'Oxygen', sans-serif;
+}
+
+.move-down {
+	min-height: 250px;
+}
+
+h4 {
+	font-weight: bolder;
+	font-size: 50px;
+}
+
+#loginbtn {
+	font-size: 25px;
+}
