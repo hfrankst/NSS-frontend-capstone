@@ -29,7 +29,8 @@ app.config(function($routeProvider){
 		templateUrl: '/partials/home.html',
 		controller: "HomeCtrl",
 		resolve: {isAuth}
-	});
+	}).
+	otherwise('/');
 });
 
 

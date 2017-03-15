@@ -1,40 +1,21 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#!/home">Let's Find Groceries!</a>
-    </div>
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Saved Products</a></li>
-            <li><a href="#">Locate Products</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Profile</a></li>
-          </ul>
-        </li>
-      </ul>
-      <form class="navbar-form navbar-left">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Find those Bargains!">
-        </div>
-        <button type="submit" class="btn btn-default">Search</button>
-      </form>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
-
 <!-- ADD A GRAPHIC HERE TO SHOW UPON LOGIN, BUT REPLACED ONCE A SEARCH IS CONDUCTED -->
 
-
-<!-- ADD IN A TABLE FOR THE PRODUCTS TO POPULATE -->
+<!-- use bootstrap table classes to style this -->
+<div class="container">
+  <div class="row">
+    <table class="table table-hover table-bordered">
+    <thead>
+      <th>Product Name</th>
+      <th>Regular Price</th>
+      <th>Sale Price</th>
+      <th>Find It Here!</th>
+    </thead>
+        <tr ng-repeat="promotion in promotions | filter: searchText.search">
+          <td>{{promotion.name}}</td>
+          <td class="text-muted">{{promotion.reg_price | currency}}</td>
+          <td class="text-success"><em><strong>{{promotion.discount_price | currency}}</strong></em></td>
+          <td>{{promotion.store}}</td>
+        </tr>
+    </table>
+  </div>
+</div>

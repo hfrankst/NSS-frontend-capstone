@@ -9,6 +9,8 @@
 </head>
 <body ng-app="Bargains">
 
+<div ng-include="'partials/navbar.html'" ng-show="$scope.isLoggedIn"></div>
+
 <div class="container-fluid">
 	<div class="row">
 		<div ng-view></div>
@@ -31,10 +33,12 @@
 <script src="/app/factories/AuthFactory.js"></script>
 <script src="/app/factories/FilterFactory.js"></script>
 <script src="/app/factories/UserFactory.js"></script>
+<script src="/app/factories/ProductFactory.js"></script>
 
 <!-- CONTROLLERS -->
 <script src="/app/controllers/LoginCtrl.js"></script>
 <script src="/app/controllers/HomeCtrl.js"></script>
+<script src="/app/controllers/NavBarCtrl.js"></script>
 
 </body>
 </html>
