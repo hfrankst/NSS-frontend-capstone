@@ -17,7 +17,6 @@
           <td class="text-success"><em><strong>{{promotion.discount_price | currency}}</strong></em></td>
           <td class="text-danger"><strong>{{promotion.promo_end}}</strong></td>
           <td>{{promotion.store}}
-          <!-- GOING TO NEED TO ADD A FUNCTION TO THIS BUTTON IN ORDER TO ADD THE PROMO TO THE 'SAVED PROMO' LIST, PASS THE PROMO ID IN AS A PARAMETER -->
             <button type="button" class="btn btn-primary btn-sm pull-right" ng-click="savePromo(promotion)">
               <span class="glyphicon glyphicon-plus"></span> Add Promo
             </button>

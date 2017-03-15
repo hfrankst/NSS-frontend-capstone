@@ -1,7 +1,6 @@
 "use strict";
 
 app.factory('ProductFactory', function($q, $http, FBCreds){
-	console.log("ProductFactory.js");
 
 	let getAllPromos = () => {
 		//this function reaches out to firebase to grab all available promos regardless of user uid
@@ -13,11 +12,25 @@ app.factory('ProductFactory', function($q, $http, FBCreds){
       	});
 	};
 
+	let saveUsersPromos = (savedPromo) => {
+		//this function should send a post call to send a promo with a uid attached to Firebase 
+		return $q((resolve, reject) => {
+			$http.post(`${FBCreds.databaseURL}/products.json`,
+				JSON.stringify(savedPromo))
+			.then((ObjectFromFirebase) => {
+				resolve(ObjectFromFirebase);
+				console.log("object from firebase after the promo has been saved", ObjectFromFirebase);
+			})
+			.catch((error) => {
+				reject(error);
+			});
+		});
 
-	//I want to send the uid to this function so that it can then reach out to Firebase and grab all promos attached to the user
-	let saveUsersPromos = () => {
-		
 	};
 
-	return {getAllPromos, saveUsersPromos};
+	let getUsersPromos = () => {
+
+	};
+
+	return {getAllPromos, saveUsersPromos, getUsersPromos};
 });
