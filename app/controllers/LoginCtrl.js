@@ -2,8 +2,8 @@
 
 //login, logout, register, loginGoogle, clever conditional, authfactory
 
-app.controller("LoginCtrl", function($scope, $window, AuthFactory, UserFactory, $location){
-console.log("LoginCtrl");
+app.controller("LoginCtrl", function($scope, $window, AuthFactory, UserFactory, $location, ProductFactory){
+// console.log("LoginCtrl");
     //run these when controller loads
     $scope.account = {
         email: "",
@@ -12,10 +12,10 @@ console.log("LoginCtrl");
 
 
     let logout = () => {
-        console.log("logout clicked");
+        // console.log("logout clicked");
         AuthFactory.logoutUser()
         .then(function(data){
-            console.log("logged out?", data);
+            // console.log("logged out?", data);
             $window.location.url = "#!/login";
         }, function(error){
             console.log("error occured on logout");
@@ -50,7 +50,7 @@ console.log("LoginCtrl");
             // $scope.isLoggedIn = true;
             // console.log("UserCtrl: user is loggedIn", $scope.isLoggedIn );
             // $scope.$apply();
-            $window.location.href = "#!/";
+            $window.location.href = "#!/home";
         });
     };
 
@@ -65,21 +65,8 @@ console.log("LoginCtrl");
               uid: user,
               name: newName
             };
+            $window.location.href = "#!/home";
             // console.log("newUser", $scope.newUser);
-            UserFactory.checkNewUser($scope.newUser)
-            .then ((userCollection) => {
-              let collectionLength = Object.keys(userCollection).length;
-              if (collectionLength > 0) {
-                // console.log('UID exists', Object.keys(userCollection).length);
-                $window.location.href = "#!/home";
-              } else {
-                console.log('UID does not exist');
-                $scope.addNewUser($scope.newUser);
-              }
-            });
-
-            //Once logged in, go to another view
-
             // $scope.$apply();
         }).catch(function(error) {
             // Handle the Errors.
@@ -97,7 +84,7 @@ console.log("LoginCtrl");
     $scope.addNewUser = (newUser) => {
       UserFactory.postNewUser(newUser)
       .then ( () => {
-        $window.location.href = "#!/pins/list";
+        $window.location.href = "#!/home";
       });
     };
 });

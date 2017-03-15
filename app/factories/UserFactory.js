@@ -1,13 +1,13 @@
 'use strict';
 
 app.factory("UserFactory", ($q, $http, FBCreds) => {
-  let checkNewUser = (newUser) => {
+  let checkIfUserExists = (newUser) => {
     return $q((resolve, reject) => {
       $http.get(`${FBCreds.databaseURL}/products.json`)
       .then((userObject) => {
-        console.log("userObject coming back from $http getter", userObject.data);
-        let userCollection = Object.keys(userObject.data);
-        console.log('userCollection: ', userCollection);
+        // console.log("userObject coming back from $http getter", userObject.data);
+        let userCollection = userObject.data;
+        // console.log('the first item in userCollection: ', userCollection[0]);
         resolve(userCollection);
       })
       .catch((error) => {
@@ -16,6 +16,7 @@ app.factory("UserFactory", ($q, $http, FBCreds) => {
     });
   };
 
+//walk through this to see if it is necessary, or needs to be refactored. I'm not sure I need to post a new user to FB
   let postNewUser = (newUser) =>  {
     return $q((resolve, reject) => {
       $http.post(`${FBCreds.databaseURL}/products.json`,
@@ -32,5 +33,5 @@ app.factory("UserFactory", ($q, $http, FBCreds) => {
 
 
 
-  return {postNewUser, checkNewUser};
+  return {postNewUser, checkIfUserExists};
 });

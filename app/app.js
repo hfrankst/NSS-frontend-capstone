@@ -29,7 +29,13 @@ app.config(function($routeProvider){
 		templateUrl: '/partials/home.html',
 		controller: "HomeCtrl",
 		resolve: {isAuth}
-	});
+	}).
+	when('/profile', {
+		templateUrl: '/partials/profile.html',
+		controller: "ProfileCtrl",
+		resolve: {isAuth}
+	}).
+	otherwise('/');
 });
 
 
