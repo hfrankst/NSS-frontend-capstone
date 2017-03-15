@@ -30,6 +30,11 @@ app.config(function($routeProvider){
 		controller: "HomeCtrl",
 		resolve: {isAuth}
 	}).
+	when('/profile', {
+		templateUrl: '/partials/profile.html',
+		controller: "ProfileCtrl",
+		resolve: {isAuth}
+	}).
 	otherwise('/');
 });
 

@@ -4,17 +4,24 @@
 <div class="container">
   <div class="row">
     <table class="table table-hover table-bordered">
-    <thead>
+    <thead class="table table-inverse">
       <th>Product Name</th>
       <th>Regular Price</th>
       <th>Sale Price</th>
+      <th>Sale Valid Through</th>
       <th>Find It Here!</th>
     </thead>
         <tr ng-repeat="promotion in promotions | filter: searchText.search">
           <td>{{promotion.name}}</td>
           <td class="text-muted">{{promotion.reg_price | currency}}</td>
           <td class="text-success"><em><strong>{{promotion.discount_price | currency}}</strong></em></td>
-          <td>{{promotion.store}}</td>
+          <td class="text-danger"><strong>{{promotion.promo_end}}</strong></td>
+          <td>{{promotion.store}}
+          <!-- GOING TO NEED TO ADD A FUNCTION TO THIS BUTTON IN ORDER TO ADD THE PROMO TO THE 'SAVED PROMO' LIST, PASS THE PROMO ID IN AS A PARAMETER -->
+            <button type="button" class="btn btn-primary btn-sm pull-right" ng-click="savePromo(promotion)">
+              <span class="glyphicon glyphicon-plus"></span> Add Promo
+            </button>
+          </td>
         </tr>
     </table>
   </div>

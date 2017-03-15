@@ -15,9 +15,9 @@ app.factory('ProductFactory', function($q, $http, FBCreds){
 
 
 	//I want to send the uid to this function so that it can then reach out to Firebase and grab all promos attached to the user
-	let getUsersPromos = () => {
+	let saveUsersPromos = () => {
 		
 	};
 
-	return {getAllPromos, getUsersPromos};
+	return {getAllPromos, saveUsersPromos};
 });

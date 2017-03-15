@@ -2,7 +2,7 @@
 
 //login, logout, register, loginGoogle, clever conditional, authfactory
 
-app.controller("LoginCtrl", function($scope, $window, AuthFactory, UserFactory, $location){
+app.controller("LoginCtrl", function($scope, $window, AuthFactory, UserFactory, $location, ProductFactory){
 // console.log("LoginCtrl");
     //run these when controller loads
     $scope.account = {
