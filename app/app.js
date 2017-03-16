@@ -19,7 +19,6 @@ let isAuth = (AuthFactory) => new Promise ((resolve, reject) => {
 
 
 app.config(function($routeProvider){
-	console.log("config");
 	$routeProvider.
 	when('/', {
 		templateUrl: '/partials/login.html',
@@ -41,7 +40,6 @@ app.config(function($routeProvider){
 
 //run when the app loads
 app.run(($location, FBCreds) => {
-	console.log("run");
    let creds = FBCreds;
    let authConfig = {
       apiKey: creds.apiKey,
