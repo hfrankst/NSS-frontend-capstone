@@ -60,7 +60,7 @@ app.factory('ProductFactory', function($q, $http, FBCreds){
 				reject(error);
 			});
 		});
-	}
+	};
 
 	return {getAllPromos, saveUsersPromos, getUsersPromos, deleteUsersPromo};
 });

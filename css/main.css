@@ -1,10 +1,10 @@
-
 body {
 	margin: 1em;
 	background-color: #D3D3D3;
 	font-family: 'Oxygen', sans-serif;
 }
 
+/*Login Styling*/
 .move-down {
 	min-height: 250px;
 }
@@ -17,3 +17,6 @@ h4 {
 #loginbtn {
 	font-size: 25px;
 }
+
+/*Profile Page Styling*/
+

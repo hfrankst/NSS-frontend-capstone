@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('ProfileCtrl', function($scope, SearchTermData, ProductFactory, AuthFactory){
+app.controller('ProfileCtrl', function($scope, SearchTermData, ProductFactory, AuthFactory, MapApi){
 	$scope.searchText = SearchTermData;
 	let user = AuthFactory.getUser();
 
@@ -16,6 +16,14 @@ app.controller('ProfileCtrl', function($scope, SearchTermData, ProductFactory, A
 
 	$scope.mapPromo = () => {
 		console.log("mapPromo clicked");
+		var map;
+		      function initMap() {
+		        // Constructor creates a new map - only center and zoom are required.
+		        map = new google.maps.Map(document.getElementById('map'), {
+		          center: {lat: 36.1325, lng: 86.7566},
+		          zoom: 13
+		        });
+		      }
 		//feed the resolution of userPromos into the Google map somehow to drop a pin on their location
 	};
 
