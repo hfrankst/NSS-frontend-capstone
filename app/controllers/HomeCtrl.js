@@ -19,15 +19,17 @@ app.controller('HomeCtrl', function($scope, SearchTermData, ProductFactory, Auth
 		// console.log("savePromo clicked");
 		var savedPromo = {
 			name: promo.name,
-			location: promo.store,
-			end_date: promo.promo_end,
+			store: promo.store,
+			reg_price: promo.reg_price,
+			discount_price: promo.discount_price,
+			promo_end: promo.promo_end,
 			uid: user
 		};
 		// console.log("savedPromo created", savedPromo);
 
 		ProductFactory.saveUsersPromos(savedPromo)
 		.then((something) => {
-			console.log("getting stuff back from factory", something);
+			// console.log("getting stuff back from factory", something);
 		});
 	};
 });

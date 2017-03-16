@@ -8,26 +8,23 @@ app.controller('ProfileCtrl', function($scope, SearchTermData, ProductFactory, A
 	let userPromos = () => {
 		ProductFactory.getUsersPromos(user)
 		.then((userSavedDeals) => {
+			console.log("userSavedDeals", userSavedDeals);
 			$scope.savedPromos = userSavedDeals;
 		});
 	};
 	userPromos();
 
-	let mapPromo = () => {
+	$scope.mapPromo = () => {
+		console.log("mapPromo clicked");
 		//feed the resolution of userPromos into the Google map somehow to drop a pin on their location
 	};
 
-	let removePromo = (promoId) => {
+	$scope.removePromo = (savedPromoId) => {
 		//delete the uid from the saved promo
-		console.log("delete in factory", promoId);
-		return $q((resolve, reject) => {
-			$http.delete(`${FBCreds.databaseURL}/users/${promoId}.json`)
-			.then((ObjectFromFirebase) => {
-				resolve(ObjectFromFirebase);
-			})
-			.catch((error) => {
-				reject(error);
-			});
+		console.log("delete in factory", savedPromoId);
+		ProductFactory.deleteUsersPromo(savedPromoId)
+		.then((something) => {
+			userPromos();
 		});
 	};
 });

@@ -14,10 +14,10 @@
           <td class="text-success"><em><strong>{{savedPromo.discount_price | currency}}</strong></em></td>
           <td class="text-danger"><strong>{{savedPromo.promo_end}}</strong></td>
           <td>{{savedPromo.store}}
-            <button type="button" class="btn btn-primary btn-sm pull-right" ng-click="removePromo(savedPromo)">
+            <button type="button" class="btn btn-primary btn-sm pull-right" ng-click="removePromo(savedPromo.id)">
               <span class="glyphicon glyphicon-trash"></span> Remove Promo
             </button>
-            <button type="button" class="btn btn-primary btn-sm pull-right" ng-click="mapPromo(savedPromo)">
+            <button type="button" class="btn btn-primary btn-sm pull-right" ng-click="mapPromo(savedPromo.id)">
               <span class="glyphicon glyphicon-pushpin"></span> Map Promo
             </button>
           </td>

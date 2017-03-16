@@ -25,8 +25,6 @@ app.factory('ProductFactory', function($q, $http, FBCreds){
 			$http.post(`${FBCreds.databaseURL}/users.json`, savedPromo)
 			.then((ObjectFromFirebase) => {
 				resolve(ObjectFromFirebase);
-				console.log("ObjectFromFirebase after the saved promo is passed in", ObjectFromFirebase);
-				// console.log("object from firebase after the promo has been saved", ObjectFromFirebase);
 			})
 			.catch((error) => {
 				reject(error);
@@ -36,11 +34,9 @@ app.factory('ProductFactory', function($q, $http, FBCreds){
 	};
 
 	let getUsersPromos = (user) => {
-		console.log("getUsersPromos");
 		return $q((resolve, reject) => {
       		$http.get(`${FBCreds.databaseURL}/users.json?orderBy="uid"&equalTo="${user}"`)
       		.then((userpromo) => {
-      			// console.log("userpromo after the get call", userpromo.data);
       			let userSavedDeals = [];
       			let savedCollection = userpromo.data;
       			Object.keys(savedCollection).forEach((key) => {
@@ -53,5 +49,18 @@ app.factory('ProductFactory', function($q, $http, FBCreds){
 
 	};
 
-	return {getAllPromos, saveUsersPromos, getUsersPromos};
+	let deleteUsersPromo = (savedPromoId) => {
+		console.log("promo deleted", savedPromoId);
+		return $q((resolve, reject) => {
+			$http.delete(`${FBCreds.databaseURL}/users/${savedPromoId}.json`)
+			.then((ObjectFromFirebase) => {
+				resolve(ObjectFromFirebase);
+			})
+			.catch((error) => {
+				reject(error);
+			});
+		});
+	}
+
+	return {getAllPromos, saveUsersPromos, getUsersPromos, deleteUsersPromo};
 });
