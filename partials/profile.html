@@ -1,31 +1,31 @@
-<div class="container" id="save">
-  <div class="row">
-    <table class="table table-hover table-bordered">
-    <thead class="table table-inverse">
-      <th>Product Name</th>
-      <th>Regular Price</th>
-      <th>Sale Price</th>
-      <th>Sale Valid Through</th>
-      <th>Find It Here!</th>
-    </thead>
-        <tr ng-repeat="savedPromo in savedPromos | filter: searchText.search">
-          <td>{{savedPromo.name}}</td>
-          <td class="text-muted">{{savedPromo.reg_price | currency}}</td>
-          <td class="text-success"><em><strong>{{savedPromo.discount_price | currency}}</strong></em></td>
-          <td class="text-danger"><strong>{{savedPromo.promo_end}}</strong></td>
-          <td>{{savedPromo.store}}
-            <button type="button" class="btn btn-primary btn-sm pull-right" ng-click="removePromo(savedPromo.id)">
-              <span class="glyphicon glyphicon-trash"></span> Remove Promo
-            </button>
-            <button type="button" class="btn btn-primary btn-sm pull-right" ng-click="mapPromo(savedPromo.id)">
-              <span class="glyphicon glyphicon-pushpin"></span> Map Promo
-            </button>
-          </td>
-        </tr>
-    </table>
-  </div>
+<div class="profile-flex">
+	<div class="container" id="save">
+	  <div class="row">
+	    <table class="table table-hover table-bordered">
+	    <thead class="table table-inverse">
+	      <th>Product Name</th>
+	      <th>Regular Price</th>
+	      <th>Sale Price</th>
+	      <th>Sale Valid Through</th>
+	      <th>Find It Here!</th>
+	    </thead>
+	        <tr ng-repeat="savedPromo in savedPromos | filter: searchText.search">
+	          <td>{{savedPromo.name}}</td>
+	          <td class="text-muted">{{savedPromo.reg_price | currency}}</td>
+	          <td class="text-success"><em><strong>{{savedPromo.discount_price | currency}}</strong></em></td>
+	          <td class="text-danger"><strong>{{savedPromo.promo_end}}</strong></td>
+	          <td>{{savedPromo.store}}
+	            <button type="button" class="btn btn-primary btn-sm pull-right" ng-click="removePromo(savedPromo.id)">
+	              <span class="glyphicon glyphicon-trash"></span> Remove Promo
+	            </button>
+	            <button type="button" class="btn btn-primary btn-sm pull-right" ng-click="mapPromo(savedPromo.id)">
+	              <span class="glyphicon glyphicon-pushpin"></span> Map Promo
+	            </button>
+	          </td>
+	        </tr>
+	    </table>
+	  </div>
+	</div>
+
+	<div id="mapid"></div>
 </div>
-
-
-
-<div id="mapid"></div>

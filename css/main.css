@@ -20,8 +20,14 @@ h4 {
 
 /*Profile Page Styling*/
 
+.profile-flex {
+	display: flex;
+	align-items: flex-start;
+}
+
 #save {
-	width: 50%;
+	justify-content: flex-start;
+	width: 55%;
 	display: inline-block;
 }
 
@@ -29,4 +35,5 @@ h4 {
 	height: 400px;
 	width: 40%; 
 	display: inline-block;
+	margin-left: 15px;
 }
