@@ -19,4 +19,6 @@ h4 {
 }
 
 /*Profile Page Styling*/
-
+#map {
+	height: 50%;
+}
