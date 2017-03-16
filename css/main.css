@@ -19,6 +19,14 @@ h4 {
 }
 
 /*Profile Page Styling*/
-#map {
-	height: 50%;
+
+#save {
+	width: 50%;
+	display: inline-block;
+}
+
+#mapid { 
+	height: 400px;
+	width: 40%; 
+	display: inline-block;
 }
