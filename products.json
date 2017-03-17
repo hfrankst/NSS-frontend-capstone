@@ -6,42 +6,9 @@
          "name": "Sargento Swiss Cheese",
          "reg_price": "4.00",
          "discount_price": "3.15",
-         "store": "Kroger",
+         "store": "Publix",
          "promo_start": "3-17-17",
-         "promo_end": "3-22-17",
-         "img": ""
-      },
-	
-      {
-         "category":"seafood",
-         "name": "Salmon",
-         "reg_price": "10.00",
-         "discount_price": "8.50",
-         "store": "Kroger",
-         "promo_start": "3-17-17",
-         "promo_end": "3-22-17",
-         "img": ""
-      },
-
-      {
-         "category":"baked goods",
-         "name": "Pepperidge Farm Whole Wheat",
-         "reg_price": "3.00",
-         "discount_price": "2.75",
-         "store": "ALDI",
-         "promo_start": "3-17-17",
-         "promo_end": "3-22-17",
-         "img": ""
-      },
-
-      {
-         "category":"fruit",
-         "name": "Russet Apples",
-         "reg_price": "2.00",
-         "discount_price": "1.75",
-         "store": "ALDI",
-         "promo_start": "3-17-17",
-         "promo_end": "3-22-17",
+         "promo_end": "3-25-17",
          "img": ""
       },
 
@@ -51,6 +18,231 @@
          "reg_price": "5.00",
          "discount_price": "3.75",
          "store": "Kroger",
+         "promo_start": "3-17-17",
+         "promo_end": "3-28-17",
+         "img": ""
+      },
+   
+      {
+         "category":"dairy",
+         "name": "A Dozen Organic Eggs",
+         "reg_price": "4.00",
+         "discount_price": "2.75",
+         "store": "Kroger",
+         "promo_start": "3-17-17",
+         "promo_end": "3-30-17",
+         "img": ""
+      },
+
+      {
+         "category":"dairy",
+         "name": "Daisy Sour Cream",
+         "reg_price": "4.00",
+         "discount_price": "3.00",
+         "store": "Kroger",
+         "promo_start": "3-17-17",
+         "promo_end": "4-1-17",
+         "img": ""
+      },
+
+      {
+         "category":"dairy",
+         "name": "Chobani Greek Yogurt",
+         "reg_price": "6.00",
+         "discount_price": "4.75",
+         "store": "Kroger",
+         "promo_start": "3-17-17",
+         "promo_end": "3-30-17",
+         "img": ""
+      },
+
+      {
+         "category":"dairy",
+         "name": "Kroger Sliced Cheddar Cheese",
+         "reg_price": "2.95",
+         "discount_price": "2.00",
+         "store": "Kroger",
+         "promo_start": "3-17-17",
+         "promo_end": "3-30-17",
+         "img": ""
+      },
+
+      {
+         "category":"dairy",
+         "name": "Land-o-Lakes Unsalted Butter",
+         "reg_price": "4.00",
+         "discount_price": "3.75",
+         "store": "Kroger",
+         "promo_start": "3-17-17",
+         "promo_end": "3-30-17",
+         "img": ""
+      },
+      {
+         "category":"seafood",
+         "name": "Salmon",
+         "reg_price": "10.00",
+         "discount_price": "8.50",
+         "store": "Kroger",
+         "promo_start": "3-17-17",
+         "promo_end": "3-27-17",
+         "img": ""
+      },
+      {
+         "category":"seafood",
+         "name": "Halibut",
+         "reg_price": "12.00",
+         "discount_price": "10.50",
+         "store": "Kroger",
+         "promo_start": "3-17-17",
+         "promo_end": "3-26-17",
+         "img": ""
+      },
+      {
+         "category":"seafood",
+         "name": "Frozen Shrimp",
+         "reg_price": "8.00",
+         "discount_price": "6.50",
+         "store": "Kroger",
+         "promo_start": "3-17-17",
+         "promo_end": "3-22-17",
+         "img": ""
+      },
+      {
+         "category":"seafood",
+         "name": "Sushi-California Roll",
+         "reg_price": "7.80",
+         "discount_price": "5.50",
+         "store": "Kroger",
+         "promo_start": "3-17-17",
+         "promo_end": "3-22-17",
+         "img": ""
+      },
+      {
+         "category":"baked goods",
+         "name": "Pepperidge Farm Whole Wheat Bread",
+         "reg_price": "3.00",
+         "discount_price": "2.75",
+         "store": "ALDI",
+         "promo_start": "3-17-17",
+         "promo_end": "3-22-17",
+         "img": ""
+      },
+      {
+         "category":"baked goods",
+         "name": "Wonder Bread",
+         "reg_price": "2.95",
+         "discount_price": "2.50",
+         "store": "ALDI",
+         "promo_start": "3-17-17",
+         "promo_end": "3-22-17",
+         "img": ""
+      },
+      {
+         "category":"baked goods",
+         "name": "Tricuits",
+         "reg_price": "4.00",
+         "discount_price": "3.25",
+         "store": "ALDI",
+         "promo_start": "3-17-17",
+         "promo_end": "3-22-17",
+         "img": ""
+      }, 
+      {
+         "category":"baked goods",
+         "name": "Hamburger Buns",
+         "reg_price": "3.00",
+         "discount_price": "2.75",
+         "store": "ALDI",
+         "promo_start": "3-17-17",
+         "promo_end": "3-22-17",
+         "img": ""
+      },
+      {
+         "category":"baked goods",
+         "name": "Everything Bagels",
+         "reg_price": "3.00",
+         "discount_price": "2.75",
+         "store": "Publix",
+         "promo_start": "3-17-17",
+         "promo_end": "3-22-17",
+         "img": ""
+      },
+      {
+         "category":"baked goods",
+         "name": "English Muffins",
+         "reg_price": "2.00",
+         "discount_price": "1.75",
+         "store": "Kroger",
+         "promo_start": "3-17-17",
+         "promo_end": "3-22-17",
+         "img": ""
+      },
+      {
+         "category":"produce",
+         "name": "Russet Apples",
+         "reg_price": "2.00",
+         "discount_price": "1.75",
+         "store": "ALDI",
+         "promo_start": "3-17-17",
+         "promo_end": "3-22-17",
+         "img": ""
+      },
+      {
+         "category":"produce",
+         "name": "Roma Tomatoes",
+         "reg_price": "3.00",
+         "discount_price": "2.50",
+         "store": "Kroger",
+         "promo_start": "3-17-17",
+         "promo_end": "3-22-17",
+         "img": ""
+      },
+      {
+         "category":"produce",
+         "name": "Garlic",
+         "reg_price": "2.00",
+         "discount_price": "1.50",
+         "store": "Kroger",
+         "promo_start": "3-17-17",
+         "promo_end": "3-22-17",
+         "img": ""
+      },
+      {
+         "category":"produce",
+         "name": "Romaine Lettuce",
+         "reg_price": "1.89",
+         "discount_price": "1.30",
+         "store": "Kroger",
+         "promo_start": "3-17-17",
+         "promo_end": "3-22-17",
+         "img": ""
+      },
+      {
+         "category":"produce",
+         "name": "Avocado",
+         "reg_price": "2.00",
+         "discount_price": "1.50",
+         "store": "ALDI",
+         "promo_start": "3-17-17",
+         "promo_end": "3-22-17",
+         "img": ""
+      },
+      {
+         "category":"produce",
+         "name": "Green Grapes",
+         "reg_price": "3.00",
+         "discount_price": "2.50",
+         "store": "Kroger",
+         "promo_start": "3-17-17",
+         "promo_end": "3-30-17",
+         "img": ""
+      },
+      {
+         "category":"produce",
+         "name": "Asparagus",
+         "reg_price": "3.00",
+         "discount_price": "2.00",
+         "store": "Publix",
          "promo_start": "3-17-17",
          "promo_end": "3-22-17",
          "img": ""
@@ -66,16 +258,56 @@
          "promo_end": "3-22-17",
          "img": ""
       },
-
       {
-         "category":"produce",
-         "name": "Roma Tomatoes",
+         "category":"condiments",
+         "name": "Smucker's Grape Jelly",
          "reg_price": "3.00",
-         "discount_price": "2.50",
+         "discount_price": "2.75",
+         "store": "ALDI",
+         "promo_start": "3-17-17",
+         "promo_end": "3-22-17",
+         "img": ""
+      },
+      {
+         "category":"condiments",
+         "name": "JIF Natural Peanut Butter",
+         "reg_price": "4.00",
+         "discount_price": "3.50",
          "store": "Kroger",
          "promo_start": "3-17-17",
          "promo_end": "3-22-17",
          "img": ""
+      },
+      {
+         "category":"condiments",
+         "name": "Moore's Buffalo Sauce",
+         "reg_price": "5.00",
+         "discount_price": "4.00",
+         "store": "ALDI",
+         "promo_start": "3-17-17",
+         "promo_end": "3-22-17",
+         "img": ""
+      },
+      {
+         "category":"condiments",
+         "name": "Grey Poupon Dijon Mustard",
+         "reg_price": "4.50",
+         "discount_price": "3.95",
+         "store": "Publix",
+         "promo_start": "3-17-17",
+         "promo_end": "3-29-17",
+         "img": ""
+      },
+      {
+         "category":"condiments",
+         "name": "Heinz Ketchup",
+         "reg_price": "3.15",
+         "discount_price": "2.95",
+         "store": "ALDI",
+         "promo_start": "3-17-17",
+         "promo_end": "3-22-17",
+         "img": ""
       }
+
    ]
 }

@@ -5,6 +5,7 @@ app.controller('ProfileCtrl', function($scope, SearchTermData, ProductFactory, A
 	let user = AuthFactory.getUser();
 
 	//build an object with the long and lat of each store hard coded, so you can call on them in the leaflet function
+	//I may need to build a function that takes the store front name from the info that is in the ng-repeat and then correctly feed that store's coords to the leaflet function
 
 
 	let leaflet = (lat, long) => {

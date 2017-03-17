@@ -18,6 +18,9 @@ h4 {
 	font-size: 25px;
 }
 
+/*Button Styling*/
+
+
 /*Profile Page Styling*/
 
 .profile-flex {
@@ -29,11 +32,15 @@ h4 {
 	justify-content: flex-start;
 	width: 55%;
 	display: inline-block;
-}
+	border: 2px solid black;
+/*	box-shadow: 3px 3px 3px black;
+*/}
 
 #mapid { 
 	height: 400px;
 	width: 40%; 
 	display: inline-block;
 	margin-left: 15px;
+	border: 2px solid black;
+	box-shadow: 3px 3px 3px black;
 }
