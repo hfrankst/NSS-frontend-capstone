@@ -8,8 +8,8 @@ app.controller('ProfileCtrl', function($scope, SearchTermData, ProductFactory, A
 	//I may need to build a function that takes the store front name from the info that is in the ng-repeat and then correctly feed that store's coords to the leaflet function
 
 
-	let leaflet = (lat, long) => {
-		var mymap = L.map('mapid').setView([36.1325, -86.7566], 13);
+	var mymap = L.map('mapid').setView([36.1325, -86.7566], 13);
+	let leaflet = () => {
 
 		L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v10/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaGZyYW5rc3QiLCJhIjoiY2owY3QzODNpMDUxMDMybGMydnBxeGdncCJ9.NQrhhmJVuy175EbL-IsbJw', {
 		    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
@@ -21,6 +21,47 @@ app.controller('ProfileCtrl', function($scope, SearchTermData, ProductFactory, A
 		var marker = L.marker([36.1325, -86.7566]).addTo(mymap);
 	};
 	leaflet();
+
+	$scope.onEachFeature = (feature, layer) => {
+	    // does this feature have a property named popupContent?
+	    if (feature.properties && feature.properties.popupContent) {
+	        layer.bindPopup(feature.properties.popupContent);
+	    }
+	};
+
+	var geojsonFeature = {
+	    "type": "Feature",
+	    "properties": {
+	        "name": "Kroger",
+	        "amenity": "Grocery Store",
+	        "popupContent": "This is where the promo is offered!"
+	    },
+	    "geometry": {
+	        "type": "Point",
+	        "coordinates": [36.1199, 86.7775]
+	    }
+	};
+
+	L.geoJSON(geojsonFeature, {
+	    onEachFeature: onEachFeature
+	}).addTo(mymap);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	//I want this function to fire once the '/profile' partial loads
 	let userPromos = () => {
