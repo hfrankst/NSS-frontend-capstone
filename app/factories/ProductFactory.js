@@ -5,7 +5,7 @@ app.factory('ProductFactory', function($q, $http, FBCreds){
 	let getAllPromos = () => {
 		//this function reaches out to firebase to grab all available promos regardless of user uid
 		return $q((resolve, reject) => {
-      		$http.get(`${FBCreds.databaseURL}/products.json`)
+      		$http.get(`${FBCreds.databaseURL}/products.json?orderBy="category"`)
       		.then((promodata) => {
       			let promoArray = [];
       			let promoCollection = promodata.data;

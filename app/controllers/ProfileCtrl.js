@@ -42,9 +42,9 @@ app.controller('ProfileCtrl', function($scope, SearchTermData, ProductFactory, A
 	    }
 	};
 
-	L.geoJSON(geojsonFeature, {
-	    onEachFeature: onEachFeature
-	}).addTo(mymap);
+	// L.geoJSON(geojsonFeature, {
+	//     onEachFeature: onEachFeature
+	// }).addTo(mymap);
 
 
 

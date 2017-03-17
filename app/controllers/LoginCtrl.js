@@ -35,11 +35,12 @@ app.controller("LoginCtrl", function($scope, $window, AuthFactory, UserFactory, 
           password: $scope.account.password
         })
         .then( (userData) => {
-          console.log("UserCtrl newUser:", userData );
+          console.log("UserCtrl newUser:", userData);
           $scope.login();
         }, (error) => {
             console.log("Error creating user:", error);
         });
+        $window.location.href = "#!/home";
     };
 
     $scope.login = () => {
