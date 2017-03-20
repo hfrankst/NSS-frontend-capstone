@@ -2,6 +2,11 @@
 
 app.factory('ProductFactory', function($q, $http, FBCreds){
 
+
+//////////////////////////////////////////////////////////
+/////////////////FIREBASE INTERACTION/////////////////////
+//////////////////////////////////////////////////////////
+
 	let getAllPromos = () => {
 		//this function reaches out to firebase to grab all available promos regardless of user uid
 		return $q((resolve, reject) => {
@@ -34,6 +39,7 @@ app.factory('ProductFactory', function($q, $http, FBCreds){
 	};
 
 	let getUsersPromos = (user) => {
+		//this function gets the user's saved promos in order to display them on the profile page
 		return $q((resolve, reject) => {
       		$http.get(`${FBCreds.databaseURL}/users.json?orderBy="uid"&equalTo="${user}"`)
       		.then((userpromo) => {
@@ -50,7 +56,7 @@ app.factory('ProductFactory', function($q, $http, FBCreds){
 	};
 
 	let deleteUsersPromo = (savedPromoId) => {
-		console.log("promo deleted", savedPromoId);
+		//this function deletes a specific promo from the user's list of saved promos
 		return $q((resolve, reject) => {
 			$http.delete(`${FBCreds.databaseURL}/users/${savedPromoId}.json`)
 			.then((ObjectFromFirebase) => {

@@ -12,11 +12,12 @@ app.controller('HomeCtrl', function($scope, SearchTermData, ProductFactory, Auth
 				console.log("in the getPromos function", promodata); 
 			});               
 	};
+	//I call this immediately here, because I want the available promos to load when the user logs in
 	getPromos();
 
 
 	$scope.savePromo = (promo) => {
-		// console.log("savePromo clicked");
+		console.log("savePromo");
 		var savedPromo = {
 			name: promo.name,
 			store: promo.store,
@@ -25,11 +26,6 @@ app.controller('HomeCtrl', function($scope, SearchTermData, ProductFactory, Auth
 			promo_end: promo.promo_end,
 			uid: user
 		};
-		// console.log("savedPromo created", savedPromo);
-
-		ProductFactory.saveUsersPromos(savedPromo)
-		.then((something) => {
-			// console.log("getting stuff back from factory", something);
-		});
+		ProductFactory.saveUsersPromos(savedPromo);
 	};
 });
