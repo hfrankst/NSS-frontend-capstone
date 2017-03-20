@@ -43,18 +43,18 @@ app.controller('ProfileCtrl', function($scope, SearchTermData, ProductFactory, A
 
 
 	$scope.onEachFeature = (feature, layer) => {
-		// console.log("the store object", feature);
+		console.log("the store object", feature);
 		// console.log("feature.store", feature.store);
 		// console.log("feature.address", feature.address);
-		// console.log("feature.phone", feature.phone);
+		console.log("feature.phone", feature.phone);
 		// console.log("feature.promo_end", feature.promo_end);
 
 		if(feature.store === "Kroger"){
-			var kroger = L.marker([36.1199, -86.7775]).addTo(mymap).bindPopup('<h5><style text-align: center></style>' + feature.store + '</h5><br><p>' + feature.address + '</p><br>' + feature.phone + '</p>');
+			var kroger = L.marker([36.1199, -86.7775]).addTo(mymap).bindPopup('<h5>' + feature.store + '</h5><br><label>Store Address</label><p>' + feature.address + '</p><label>Phone Number</label><p>' + feature.phone + '</p><label>Sale Ends:</label><p>' + feature.promo_end + '</p>');
 		} else if (feature.store === "ALDI") {
-			var aldi = L.marker([36.0903, -86.7323]).addTo(mymap).bindPopup('<h5><style text-align: center></style>' + feature.properties.name + '</h5><br><p>' + feature.properties.address + '</p><br>' + feature.properties.phone + '</p>');
+			var aldi = L.marker([36.0903, -86.7323]).addTo(mymap).bindPopup('<h5>' + feature.store + '</h5><br><label>Store Address</label><p>' + feature.address + '</p><label>Phone Number</label><p>' + feature.phone + '</p><label>Sale Ends:</label><p>' + feature.promo_end + '</p>');
 		} else if (feature.store === "Publix") {
-			var publix = L.marker([36.1266, -86.8474]).addTo(mymap).bindPopup('<h5><style text-align: center></style>' + feature.properties.name + '</h5><br><p>' + feature.properties.address + '</p><br>' + feature.properties.phone + '</p>');
+			var publix = L.marker([36.1266, -86.8474]).addTo(mymap).bindPopup('<h5>' + feature.store + '</h5><br><label>Store Address</label><p>' + feature.address + '</p><label>Phone Number</label><p>' + feature.phone + '</p><label>Sale Ends:</label><p>' + feature.promo_end + '</p>');
 		}
 		
 		// if (feature.properties && feature.properties.address) {

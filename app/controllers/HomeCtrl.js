@@ -25,7 +25,8 @@ app.controller('HomeCtrl', function($scope, SearchTermData, ProductFactory, Auth
 			discount_price: promo.discount_price,
 			promo_end: promo.promo_end,
 			uid: user,
-			address: promo.address
+			address: promo.address,
+			phone: promo.phone
 		};
 		ProductFactory.saveUsersPromos(savedPromo);
 	};
