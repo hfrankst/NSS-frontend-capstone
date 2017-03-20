@@ -16,91 +16,55 @@ app.controller('ProfileCtrl', function($scope, SearchTermData, ProductFactory, A
 		    id: 'hfrankst.4a5bytnl',
 		    accessToken: 'pk.eyJ1IjoiaGZyYW5rc3QiLCJhIjoiY2owY3QzODNpMDUxMDMybGMydnBxeGdncCJ9.NQrhhmJVuy175EbL-IsbJw'
 		}).addTo(mymap);
-
-		// var marker = L.marker([36.1325, -86.7566]).addTo(mymap);
 	};
 	leaflet();
 
-	$scope.onEachFeature = (feature, layer) => {
-		console.log("the store name", feature);
-		console.log("feature.store", feature.store);
-
-		//don't think this is the best way to do this but fuck it
-		if(feature.store === "Kroger"){
-			var kroger = L.marker([36.1199, -86.7775]).addTo(mymap);
-		} else if (feature.store === "ALDI") {
-			var aldi = L.marker([36.0903, -86.7323]).addTo(mymap);
-		} else if (feature.store === "Publix") {
-			var publix = L.marker([36.1266, -86.8474]).addTo(mymap);
+	var stores = [
+		{"type":"Feature",
+			"geometry":{"type":"Point", "coordinates":[-86.7775, 36.0903]},
+			"properties":{"name":"Kroger", "address": "2615 Franklin Pike Nashville, TN 37204", "phone": "(855) 955-2534"}
+		},
+		{"type":"Feature",
+			"geometry":{"type":"Point", "coordinates":[-86.7323, 36.0903]},
+			"properties":{"name":"ALDI", "address": "3758 Nolensville Pike Nashville, TN 37211", "phone": "(855) 955-2534"}
+		},
+		{"type":"Feature",
+			"geometry":{"type":"Point", "coordinates":[-86.8474, 36.1266]},
+			"properties":{"name":"Publix", "address": "4324 Harding Pike Nashville, TN 37205","phone": "(615) 279-2038"}
 		}
-		 if (feature.properties && feature.properties.popupContent) {
-			        layer.bindPopup(feature.properties.popupContent);
-			    }
+	];
 
-		// mapboxgl.accessToken = 'pk.eyJ1IjoiaGZyYW5rc3QiLCJhIjoiY2owY3QzODNpMDUxMDMybGMydnBxeGdncCJ9.NQrhhmJVuy175EbL-IsbJw'; 
-		//    var map = new mapboxgl.Map({
-		//      container: 'mapid',
-		//      style: 'mapbox://styles/hfrankst/cj0icofq9005b2sqprh6degmc' 
-		//    });
-		//    // code from the next step will go here
-
-		//    map.on('click', function(e) {
-		//      var features = map.queryRenderedFeatures(e.point, {
-		//        layers: ['streets'] 
-		//      });
-
-		//      if (!features.length) {
-		//        return;
-		//      }
-
-		//      var feature = features[0];
-
-		//      var popup = new mapboxgl.Popup({ offset: [0, -15] })
-		//        .setLngLat(feature.geometry.coordinates)
-		//        .setHTML('<h3>' + feature.properties.name + '</h3><p>' + feature.properties.address + '</p><p>' + feature.properties.phone + '</p>' )
-		//        .setLngLat(feature.geometry.coordinates)
-		//        .addTo(map);
-		//    });
+	// let layerCountries = L.geoJson(stores, {
+ //        // correctly map the geojson coordinates on the image
+ //        coordsToLatLng: function(coords) {
+ //            return rc.unproject(coords);
+ //        }
+ //    });
 
 
-		//
-		// console.log("looking into the feature", feature.properties);
+	$scope.onEachFeature = (feature, layer) => {
+		// console.log("the store object", feature);
+		// console.log("feature.store", feature.store);
+		// console.log("feature.address", feature.address);
+		// console.log("feature.phone", feature.phone);
+		// console.log("feature.promo_end", feature.promo_end);
 
-		//this code is taking from a mapbox tutorial 
-		 // map.on('click', function(e) {
-		   // var features = map.queryRenderedFeatures(e.point, {
-		   //   layers: ['{layer name}'] // replace this with the name of the layer
-		   // });
+		if(feature.store === "Kroger"){
+			var kroger = L.marker([36.1199, -86.7775]).addTo(mymap).bindPopup('<h5><style text-align: center></style>' + feature.store + '</h5><br><p>' + feature.address + '</p><br>' + feature.phone + '</p>');
+		} else if (feature.store === "ALDI") {
+			var aldi = L.marker([36.0903, -86.7323]).addTo(mymap).bindPopup('<h5><style text-align: center></style>' + feature.properties.name + '</h5><br><p>' + feature.properties.address + '</p><br>' + feature.properties.phone + '</p>');
+		} else if (feature.store === "Publix") {
+			var publix = L.marker([36.1266, -86.8474]).addTo(mymap).bindPopup('<h5><style text-align: center></style>' + feature.properties.name + '</h5><br><p>' + feature.properties.address + '</p><br>' + feature.properties.phone + '</p>');
+		}
+		
+		// if (feature.properties && feature.properties.address) {
+		//     layer.bindPopup('<h5><style text-align: center></style>' + feature.properties.name + '</h5><br><p>' + feature.properties.address + '</p><br>' + feature.properties.phone + '</p>');
+		// }
 
-		   // if (!features.length) {
-		   //   return;
-		   // }
-
-		 //   var feature = 
-		 //   		{
-		 //   		    "type": "Feature",
-		 //   		    "geometry": {
-		 //   		        "type": "Point",
-		 //   		        "coordinates": [36.1199, -86.7775]
-		 //   		    },
-		 //   		    "properties": {
-		 //   		        "name": "Kroger",
-		 //   		        "amenity": "Grocery Store",
-		 //   		        "popupContent": "This is where the promo is offered!"
-		 //   		    }
-		 //   		};
-
-		 //   var popup = new mapboxgl.Popup({ offset: [0, -15] })
-		 //     .setLngLat(feature.geometry.coordinates)
-		 //     .setHTML('<h3>' + feature.properties.title + '</h3><p>' + feature.properties.description + '</p>')
-		 //     .setLngLat(feature.geometry.coordinates)
-		 //     .addTo(mymap);
-		 // });
-
-
-		// new L.GeoJSON(feature).addTo(mymap);
 	};
-
+	// L.geoJSON(stores, {
+	//     onEachFeature: onEachFeature
+	// }).addTo(mymap);
 
 	let userPromos = () => {
 		ProductFactory.getUsersPromos(user)
