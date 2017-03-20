@@ -6,7 +6,9 @@
 			"coordinates":[-86.7775, 36.0903]
 		},
 		"properties":{
-			"name":"Kroger"
+			"name":"Kroger", 
+			"address": "2615 Franklin Pike Nashville, TN 37204",
+			"phone": "(855) 955-2534"
 		}
 	},
 	{"type":"Feature",
@@ -15,7 +17,9 @@
 			"coordinates":[-86.7323, 36.0903]
 		},
 		"properties":{
-			"name":"ALDI"
+			"name":"ALDI",
+			"address": "3758 Nolensville Pike Nashville, TN 37211",
+			"phone": "(855) 955-2534"
 		}
 	},
 	{"type":"Feature",
@@ -24,7 +28,9 @@
 			"coordinates":[-86.8474, 36.1266]
 		},
 		"properties":{
-			"name":"Publix"
+			"name":"Publix",
+			"address": "4324 Harding Pike Nashville, TN 37205",
+			"phone": "(615) 279-2038"
 		}
 	}
 	]
