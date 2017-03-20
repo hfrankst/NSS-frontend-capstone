@@ -1,0 +1,31 @@
+{"type":"FeatureCollection",
+	"features":[
+	{"type":"Feature",
+		"geometry":{
+			"type":"Point",
+			"coordinates":[-86.7775, 36.0903]
+		},
+		"properties":{
+			"name":"Kroger"
+		}
+	},
+	{"type":"Feature",
+		"geometry":{
+			"type":"Point",
+			"coordinates":[-86.7323, 36.0903]
+		},
+		"properties":{
+			"name":"ALDI"
+		}
+	},
+	{"type":"Feature",
+		"geometry":{
+			"type":"Point",
+			"coordinates":[-86.8474, 36.1266]
+		},
+		"properties":{
+			"name":"Publix"
+		}
+	}
+	]
+}
