@@ -2,8 +2,11 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 	<title>Discount Grocery Hunting</title>
 	<link rel="stylesheet" type="text/css" href="/lib/node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+	<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.31.0/mapbox-gl.css' rel='stylesheet' />
 	<link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="/css/main.css">
 </head>
@@ -25,9 +28,16 @@
 <script src="/lib/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="/lib/node_modules/firebase/firebase.js"></script>
 
+<!-- LEAFLET MAP FILE -->
+<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+<script src="/lib/node_modules/angular-leaflet-directive/dist/angular-leaflet-directive.min.js"></script>
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.31.0/mapbox-gl.js'></script>
+
+
 <!-- APP FILES -->
 <script src="/app/app.js"></script>
 <script src="/app/values/fbcreds.js"></script>
+<script src="/app/values/mapapi.js"></script>
 
 <!-- FACTORIES -->
 <script src="/app/factories/AuthFactory.js"></script>
@@ -40,6 +50,7 @@
 <script src="/app/controllers/HomeCtrl.js"></script>
 <script src="/app/controllers/NavBarCtrl.js"></script>
 <script src="/app/controllers/ProfileCtrl.js"></script>
+<script src="/app/controllers/MapCtrl.js"></script>
 
 </body>
 </html>

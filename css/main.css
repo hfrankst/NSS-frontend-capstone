@@ -1,10 +1,10 @@
-
 body {
 	margin: 1em;
 	background-color: #D3D3D3;
 	font-family: 'Oxygen', sans-serif;
 }
 
+/*Login Styling*/
 .move-down {
 	min-height: 250px;
 }
@@ -16,4 +16,31 @@ h4 {
 
 #loginbtn {
 	font-size: 25px;
+}
+
+/*Button Styling*/
+
+
+/*Profile Page Styling*/
+
+.profile-flex {
+	display: flex;
+	align-items: flex-start;
+}
+
+#save {
+	justify-content: flex-start;
+	width: 55%;
+	display: inline-block;
+	border: 2px solid black;
+/*	box-shadow: 3px 3px 3px black;
+*/}
+
+#mapid { 
+	height: 400px;
+	width: 40%; 
+	display: inline-block;
+	margin-left: 15px;
+	border: 2px solid black;
+	box-shadow: 3px 3px 3px black;
 }
