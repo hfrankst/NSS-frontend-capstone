@@ -56,12 +56,12 @@ h4 {
 	width: 40%; 
 	display: inline-block;
 	margin-left: 15px;
-	border: 2px solid black;
-	box-shadow: 3px 3px 3px black;
+/*	border: 2px solid black;
+*/	box-shadow: 3px 3px 3px 1px black;
 }
 
 /*Promotions Page Styling*/
 
-#promo-table {
+.promo-table {
 	border: 2px solid black;
 }

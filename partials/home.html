@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row" >
-    <table class="table table-hover" id="promo-table">
+    <table class="table table-hover promo-table">
       <thead class="table table-inverse" >
         <th>Product Name</th>
         <th>Regular Price</th>
@@ -8,10 +8,10 @@
         <th>Sale Valid Through</th>
         <th>Find It Here!</th>
       </thead>
-      <label>{{promotion.category | uppercase}}</label>
       <tbody  ng-repeat="promotion in promotions | filter: searchText.search" ng-if="promotion.category === 'dairy'">
+      <label>{{promotion.category}}</label>
         <tr>
-          <td>{{promotion.name}}</td>
+          <td width="20%">{{promotion.name}}</td>
           <td class="text-muted">{{promotion.reg_price | currency}}</td>
           <td class="text-success"><em><strong>{{promotion.discount_price | currency}}</strong></em></td>
           <td class="text-danger"><strong>{{promotion.promo_end}}</strong></td>
@@ -23,8 +23,7 @@
         </tr>
       </tbody>
     </table>
-
-    <table class="table table-hover" id="promo-table">
+    <table class="table table-hover promo-table">
       <thead class="table table-inverse" >
         <th>Product Name</th>
         <th>Regular Price</th>
@@ -34,7 +33,7 @@
       </thead>
       <tbody  ng-repeat="promotion in promotions | filter: searchText.search" ng-if="promotion.category === 'seafood'">
         <tr>
-          <td>{{promotion.name}}</td>
+          <td width="20%">{{promotion.name}}</td>
           <td class="text-muted">{{promotion.reg_price | currency}}</td>
           <td class="text-success"><em><strong>{{promotion.discount_price | currency}}</strong></em></td>
           <td class="text-danger"><strong>{{promotion.promo_end}}</strong></td>
@@ -46,8 +45,7 @@
         </tr>
       </tbody>
     </table>
-
-    <table class="table table-hover" id="promo-table">
+    <table class="table table-hover promo-table">
       <thead class="table table-inverse" >
         <th>Product Name</th>
         <th>Regular Price</th>
@@ -57,7 +55,7 @@
       </thead>
       <tbody  ng-repeat="promotion in promotions | filter: searchText.search" ng-if="promotion.category === 'baked goods'">
         <tr>
-          <td>{{promotion.name}}</td>
+          <td width="20%">{{promotion.name}}</td>
           <td class="text-muted">{{promotion.reg_price | currency}}</td>
           <td class="text-success"><em><strong>{{promotion.discount_price | currency}}</strong></em></td>
           <td class="text-danger"><strong>{{promotion.promo_end}}</strong></td>
@@ -69,8 +67,7 @@
         </tr>
       </tbody>
     </table>
-
-    <table class="table table-hover" id="promo-table">
+    <table class="table table-hover promo-table">
       <thead class="table table-inverse" >
         <th>Product Name</th>
         <th>Regular Price</th>
@@ -80,7 +77,7 @@
       </thead>
       <tbody  ng-repeat="promotion in promotions | filter: searchText.search" ng-if="promotion.category === 'produce'">
         <tr>
-          <td>{{promotion.name}}</td>
+          <td width="20%">{{promotion.name}}</td>
           <td class="text-muted">{{promotion.reg_price | currency}}</td>
           <td class="text-success"><em><strong>{{promotion.discount_price | currency}}</strong></em></td>
           <td class="text-danger"><strong>{{promotion.promo_end}}</strong></td>
@@ -92,8 +89,7 @@
         </tr>
       </tbody>
     </table>
-
-    <table class="table table-hover" id="promo-table">
+    <table class="table table-hover promo-table">
       <thead class="table table-inverse" >
         <th>Product Name</th>
         <th>Regular Price</th>
@@ -103,7 +99,7 @@
       </thead>
       <tbody  ng-repeat="promotion in promotions | filter: searchText.search" ng-if="promotion.category === 'condiments'">
         <tr>
-          <td>{{promotion.name}}</td>
+          <td width="20%">{{promotion.name}}</td>
           <td class="text-muted">{{promotion.reg_price | currency}}</td>
           <td class="text-success"><em><strong>{{promotion.discount_price | currency}}</strong></em></td>
           <td class="text-danger"><strong>{{promotion.promo_end}}</strong></td>
@@ -115,6 +111,5 @@
         </tr>
       </tbody>
     </table>
-
   </div>
 </div>
