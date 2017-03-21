@@ -34,11 +34,6 @@ app.config(function($routeProvider){
 		controller: "ProfileCtrl",
 		resolve: {isAuth}
 	}).
-	when('/map', {
-		templateUrl: '/partials/map.html',
-		controller: "MapCtrl",
-		resolve: {isAuth}
-	}).
 	otherwise('/');
 });
 
