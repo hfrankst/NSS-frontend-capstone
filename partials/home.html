@@ -1,15 +1,19 @@
-<!-- ADD A GRAPHIC HERE TO SHOW UPON LOGIN, BUT REPLACED ONCE A SEARCH IS CONDUCTED -->
+<!-- I WANT TO BREAK THIS TABLE UP BY CATEGORY AS IT IS NG-REPEATED THROUGH AND PUBLISHED TO THE DOM -->
 
 <div class="container">
-  <div class="row">
+  <div class="row" >
     <table class="table table-hover" id="promo-table">
-    <thead class="table table-inverse">
-      <th>Product Name</th>
-      <th>Regular Price</th>
-      <th>Sale Price</th>
-      <th>Sale Valid Through</th>
-      <th>Find It Here!</th>
-    </thead>
+      <thead class="table table-inverse" >
+        <th>Product Name</th>
+        <th>Regular Price</th>
+        <th>Sale Price</th>
+        <th>Sale Valid Through</th>
+        <th>Find It Here!</th>
+      </thead>
+      <tbody>
+        <label ng-repeat="each in promotion">
+          {{promotion.category | uppercase}}
+        </label>
         <tr ng-repeat="promotion in promotions | filter: searchText.search">
           <td>{{promotion.name}}</td>
           <td class="text-muted">{{promotion.reg_price | currency}}</td>
@@ -21,6 +25,7 @@
             </button>
           </td>
         </tr>
+      </tbody>
     </table>
   </div>
 </div>
