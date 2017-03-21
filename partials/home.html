@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row" >
     <table class="table table-hover promo-table">
+      <h4>Dairy</h4>
       <thead class="table table-inverse" >
         <th>Product Name</th>
         <th>Regular Price</th>
@@ -9,7 +10,6 @@
         <th>Find It Here!</th>
       </thead>
       <tbody  ng-repeat="promotion in promotions | filter: searchText.search" ng-if="promotion.category === 'dairy'">
-      <label>{{promotion.category}}</label>
         <tr>
           <td width="25%">{{promotion.name}}</td>
           <td class="text-muted">{{promotion.reg_price | currency}}</td>
@@ -24,6 +24,7 @@
       </tbody>
     </table>
     <table class="table table-hover promo-table">
+    <h4>Seafood</h4>
       <thead class="table table-inverse" >
         <th>Product Name</th>
         <th>Regular Price</th>
@@ -46,6 +47,7 @@
       </tbody>
     </table>
     <table class="table table-hover promo-table">
+    <h4>Baked Goods</h4>
       <thead class="table table-inverse" >
         <th>Product Name</th>
         <th>Regular Price</th>
@@ -68,6 +70,7 @@
       </tbody>
     </table>
     <table class="table table-hover promo-table">
+    <h4>Produce</h4>
       <thead class="table table-inverse" >
         <th>Product Name</th>
         <th>Regular Price</th>
@@ -90,6 +93,7 @@
       </tbody>
     </table>
     <table class="table table-hover promo-table">
+    <h4>Condiments</h4>
       <thead class="table table-inverse" >
         <th>Product Name</th>
         <th>Regular Price</th>
