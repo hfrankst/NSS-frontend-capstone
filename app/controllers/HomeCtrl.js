@@ -4,7 +4,7 @@ app.controller('HomeCtrl', function($scope, SearchTermData, ProductFactory, Auth
 	$scope.searchText = SearchTermData;
 	let user = AuthFactory.getUser();
 
-	
+	//this gets all available promos and loads immediately on the promotions page
 	let getPromos = () => {
 			ProductFactory.getAllPromos()
 			.then((promodata) => {
@@ -12,10 +12,9 @@ app.controller('HomeCtrl', function($scope, SearchTermData, ProductFactory, Auth
 				console.log("in the getPromos function", promodata); 
 			});               
 	};
-	//I call this immediately here, because I want the available promos to load when the user logs in
 	getPromos();
 
-
+	//this function is building a new object to be stored by uid, so that the user can load his/her saved promos on the profile page
 	$scope.savePromo = (promo) => {
 		console.log("savePromo");
 		var savedPromo = {

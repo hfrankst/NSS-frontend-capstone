@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('ProfileCtrl', function($scope, SearchTermData, ProductFactory, AuthFactory, MapApi){
+app.controller('ProfileCtrl', function($scope, SearchTermData, ProductFactory, AuthFactory){
 	$scope.searchText = SearchTermData;
 	let user = AuthFactory.getUser();
 
@@ -19,53 +19,17 @@ app.controller('ProfileCtrl', function($scope, SearchTermData, ProductFactory, A
 	};
 	leaflet();
 
-	var stores = [
-		{"type":"Feature",
-			"geometry":{"type":"Point", "coordinates":[-86.7775, 36.0903]},
-			"properties":{"name":"Kroger", "address": "2615 Franklin Pike Nashville, TN 37204", "phone": "(855) 955-2534"}
-		},
-		{"type":"Feature",
-			"geometry":{"type":"Point", "coordinates":[-86.7323, 36.0903]},
-			"properties":{"name":"ALDI", "address": "3758 Nolensville Pike Nashville, TN 37211", "phone": "(855) 955-2534"}
-		},
-		{"type":"Feature",
-			"geometry":{"type":"Point", "coordinates":[-86.8474, 36.1266]},
-			"properties":{"name":"Publix", "address": "4324 Harding Pike Nashville, TN 37205","phone": "(615) 279-2038"}
-		}
-	];
-
-	// let layerCountries = L.geoJson(stores, {
- //        // correctly map the geojson coordinates on the image
- //        coordsToLatLng: function(coords) {
- //            return rc.unproject(coords);
- //        }
- //    });
-
-
 	$scope.onEachFeature = (feature, layer) => {
-		console.log("the store object", feature);
-		// console.log("feature.store", feature.store);
-		// console.log("feature.address", feature.address);
-		console.log("feature.phone", feature.phone);
-		// console.log("feature.promo_end", feature.promo_end);
 
 		if(feature.store === "Kroger"){
-			var kroger = L.marker([36.1199, -86.7775]).addTo(mymap).bindPopup('<h5><strong>' + feature.store + '</strong></h5><br><label>Store Address</label><p>' + feature.address + '</p><label>Phone Number</label><p>' + feature.phone + '</p><label>Sale Ends:</label><p>' + feature.promo_end + '</p>');
+			var kroger = L.marker([36.1199, -86.7775]).addTo(mymap).bindPopup('<h5><strong>' + feature.store + '</strong></h5><span>' + feature.name + '</span><br><label>Store Address</label><p>' + feature.address + '</p><label>Phone Number</label><p>' + feature.phone + '</p><label>Sale Ends:</label><p>' + feature.promo_end + '</p>');
 		} else if (feature.store === "ALDI") {
-			var aldi = L.marker([36.0903, -86.7323]).addTo(mymap).bindPopup('<h5><strong>' + feature.store + '</strong></h5><br><label>Store Address</label><p>' + feature.address + '</p><label>Phone Number</label><p>' + feature.phone + '</p><label>Sale Ends:</label><p>' + feature.promo_end + '</p>');
+			var aldi = L.marker([36.0903, -86.7323]).addTo(mymap).bindPopup('<h5><strong>' + feature.store + '</strong></h5><span>' + feature.name + '</span><br><label>Store Address</label><p>' + feature.address + '</p><label>Phone Number</label><p>' + feature.phone + '</p><label>Sale Ends:</label><p>' + feature.promo_end + '</p>');
 		} else if (feature.store === "Publix") {
-			var publix = L.marker([36.1266, -86.8474]).addTo(mymap).bindPopup('<h5><strong>' + feature.store + '</strong></h5><br><label>Store Address</label><p>' + feature.address + '</p><label>Phone Number</label><p>' + feature.phone + '</p><label>Sale Ends:</label><p>' + feature.promo_end + '</p>');
-		}
-		
-		// if (feature.properties && feature.properties.address) {
-		//     layer.bindPopup('<h5><style text-align: center></style>' + feature.properties.name + '</h5><br><p>' + feature.properties.address + '</p><br>' + feature.properties.phone + '</p>');
-		// }
-
+			var publix = L.marker([36.1266, -86.8474]).addTo(mymap).bindPopup('<h5><strong>' + feature.store + '</strong></h5><span>' + feature.name + '</span><br><label>Store Address</label><p>' + feature.address + '</p><label>Phone Number</label><p>' + feature.phone + '</p><label>Sale Ends:</label><p>' + feature.promo_end + '</p>');
+		}		
 	};
-	// L.geoJSON(stores, {
-	//     onEachFeature: onEachFeature
-	// }).addTo(mymap);
-
+	
 	let userPromos = () => {
 		ProductFactory.getUsersPromos(user)
 		.then((userSavedDeals) => {
@@ -76,7 +40,6 @@ app.controller('ProfileCtrl', function($scope, SearchTermData, ProductFactory, A
 	userPromos();
 
 	$scope.removePromo = (savedPromoId) => {
-		//delete the uid from the saved promo
 		console.log("delete in factory", savedPromoId);
 		ProductFactory.deleteUsersPromo(savedPromoId)
 		.then((something) => {
