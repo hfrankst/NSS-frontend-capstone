@@ -4,7 +4,8 @@
 
 body {
 	margin: 1em;
-	background-color: #bfb9b7;
+	background-color: #A0C1D1;
+	color: #232C33;
 }
 
 /*Login Styling*/
@@ -34,6 +35,7 @@ h4 {
 #login-form {
 	flex-grow: 1;
 }
+
 /*Back to Top Button Styling*/
 #return-to-top {
     position: fixed;
@@ -68,10 +70,11 @@ h4 {
     -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
 }
+
 #return-to-top:hover {
-	/*65-105-225*/
     background: rgba(65, 105, 225, 0.9);
 }
+
 #return-to-top:hover i {
     color: #fff;
     top: 5px;
@@ -96,8 +99,7 @@ h4 {
 	width: 40%; 
 	display: inline-block;
 	margin-left: 15px;
-/*	border: 2px solid black;
-*/	box-shadow: 3px 3px 3px 1px black;
+	box-shadow: 3px 3px 3px 1px black;
 }
 
 /*Promotions Page Styling*/
@@ -106,13 +108,7 @@ h4 {
 	border: 2px solid black;
 }
 
-/*Fixed Footer Styling*/
-
-footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  background-color: #f5f5f5;
+/*NavBar Styling*/
+.navbar-default {
+	box-shadow: 2px 2px 2px 1px black;
 }
