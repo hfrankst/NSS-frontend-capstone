@@ -23,10 +23,13 @@ app.controller('ProfileCtrl', function($scope, SearchTermData, ProductFactory, A
 
 		if(feature.store === "Kroger"){
 			var kroger = L.marker([36.1199, -86.7775]).addTo(mymap).bindPopup('<h5><strong>' + feature.store + '</strong></h5><span>' + feature.name + '</span><br><label>Store Address</label><p>' + feature.address + '</p><label>Phone Number</label><p>' + feature.phone + '</p><label>Sale Ends:</label><p>' + feature.promo_end + '</p>');
+			var panToKroger = mymap.panTo([36.1199, -86.7775]);
 		} else if (feature.store === "ALDI") {
 			var aldi = L.marker([36.0903, -86.7323]).addTo(mymap).bindPopup('<h5><strong>' + feature.store + '</strong></h5><span>' + feature.name + '</span><br><label>Store Address</label><p>' + feature.address + '</p><label>Phone Number</label><p>' + feature.phone + '</p><label>Sale Ends:</label><p>' + feature.promo_end + '</p>');
+			var panToAldi = mymap.panTo([36.0903, -86.7323]);
 		} else if (feature.store === "Publix") {
 			var publix = L.marker([36.1266, -86.8474]).addTo(mymap).bindPopup('<h5><strong>' + feature.store + '</strong></h5><span>' + feature.name + '</span><br><label>Store Address</label><p>' + feature.address + '</p><label>Phone Number</label><p>' + feature.phone + '</p><label>Sale Ends:</label><p>' + feature.promo_end + '</p>');
+			var panToPublix = mymap.panTo([36.1266, -86.8474]);
 		}		
 	};
 	
