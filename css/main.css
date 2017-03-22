@@ -40,7 +40,7 @@ h4 {
     bottom: 20px;
     right: 20px;
     background: rgb(0, 0, 0);
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(65, 105, 225, 0.9);
     width: 50px;
     height: 50px;
     display: block;
@@ -69,7 +69,8 @@ h4 {
     transition: all 0.3s ease;
 }
 #return-to-top:hover {
-    background: rgba(0, 0, 0, 0.9);
+	/*65-105-225*/
+    background: rgba(65, 105, 225, 0.9);
 }
 #return-to-top:hover i {
     color: #fff;

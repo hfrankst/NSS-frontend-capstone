@@ -30,7 +30,7 @@ app.controller('HomeCtrl', function($scope, SearchTermData, ProductFactory, Auth
 		ProductFactory.saveUsersPromos(savedPromo);
 	};
 
-	// ===== Scroll to Top ==== 
+	// ===== Scroll to Top...taken from CodePen ==== 
 	$(window).scroll(function() {
 	    if ($(this).scrollTop() >= 50) {        // If page is scrolled more than 50px
 	        $('#return-to-top').fadeIn(200);    // Fade in the arrow
