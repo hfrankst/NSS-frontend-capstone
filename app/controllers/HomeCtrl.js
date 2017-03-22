@@ -29,6 +29,11 @@ app.controller('HomeCtrl', function($scope, SearchTermData, ProductFactory, Auth
 		};
 		ProductFactory.saveUsersPromos(savedPromo);
 	};
+/////////////////////////////////////////////////////////
+/////////////////Stretch for later:
+////////////use for loops to build objects of promos, with each iteration test for the category value and store promo into corresponding objects.  These objects then need to be fed into the ng-repeat to make the table.  Figure out how to create tables without re-creating the <thead> with every iteration. Do I build the objects in this controller, like the above object? If so, how do I feed all the objects into the partial and the one instance of the ng-repeat? How do I effectively take advantage of the ng-if to control the tables? I think it could be used as part of the "testing" of the category values, but I don't know how that would look.  
+
+
 
 	// ===== Scroll to Top...taken from CodePen ==== 
 	$(window).scroll(function() {
