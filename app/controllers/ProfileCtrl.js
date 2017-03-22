@@ -3,10 +3,7 @@
 app.controller('ProfileCtrl', function($scope, SearchTermData, ProductFactory, AuthFactory){
 	$scope.searchText = SearchTermData;
 	let user = AuthFactory.getUser();
-
-	//build an object with the long and lat of each store hard coded, so you can call on them in the leaflet function
-	//I may need to build a function that takes the store front name from the info that is in the ng-repeat and then correctly feed that store's coords to the leaflet function
-	var mymap = L.map('mapid').setView([36.1325, -86.7566], 15);
+	let mymap = L.map('mapid').setView([36.1325, -86.7566], 15);
 
 	let leaflet = () => {
 
@@ -23,7 +20,7 @@ app.controller('ProfileCtrl', function($scope, SearchTermData, ProductFactory, A
 
 		if(feature.store === "Kroger"){
 			var kroger = L.marker([36.1199, -86.7775]).addTo(mymap).bindPopup('<h5><strong>' + feature.store + '</strong></h5><span>' + feature.name + '</span><br><label>Store Address</label><p>' + feature.address + '</p><label>Phone Number</label><p>' + feature.phone + '</p><label>Sale Ends:</label><p>' + feature.promo_end + '</p>');
-			var panToKroger = mymap.panTo([36.1199, -86.7775]);
+			var panToKroger = mymap.panTo([36.1199, -86.7775], {animation: true});
 		} else if (feature.store === "ALDI") {
 			var aldi = L.marker([36.0903, -86.7323]).addTo(mymap).bindPopup('<h5><strong>' + feature.store + '</strong></h5><span>' + feature.name + '</span><br><label>Store Address</label><p>' + feature.address + '</p><label>Phone Number</label><p>' + feature.phone + '</p><label>Sale Ends:</label><p>' + feature.promo_end + '</p>');
 			var panToAldi = mymap.panTo([36.0903, -86.7323]);
