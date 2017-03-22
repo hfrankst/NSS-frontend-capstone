@@ -1,8 +1,7 @@
-<!-- I WANT TO BREAK THIS TABLE UP BY CATEGORY AS IT IS NG-REPEATED THROUGH AND PUBLISHED TO THE DOM -->
-
 <div class="container">
   <div class="row" >
-    <table class="table table-hover" id="promo-table">
+    <table class="table table-hover promo-table">
+      <h4>Dairy</h4>
       <thead class="table table-inverse" >
         <th>Product Name</th>
         <th>Regular Price</th>
@@ -10,12 +9,101 @@
         <th>Sale Valid Through</th>
         <th>Find It Here!</th>
       </thead>
-      <tbody>
-        <label ng-repeat="each in promotion">
-          {{promotion.category | uppercase}}
-        </label>
-        <tr ng-repeat="promotion in promotions | filter: searchText.search">
-          <td>{{promotion.name}}</td>
+      <tbody  ng-repeat="promotion in promotions | filter: searchText.search" ng-if="promotion.category === 'dairy'">
+        <tr>
+          <td width="25%">{{promotion.name}}</td>
+          <td class="text-muted">{{promotion.reg_price | currency}}</td>
+          <td class="text-success"><em><strong>{{promotion.discount_price | currency}}</strong></em></td>
+          <td class="text-danger"><strong>{{promotion.promo_end}}</strong></td>
+          <td>{{promotion.store}}
+            <button type="button" class="btn btn-primary btn-sm pull-right" ng-click="savePromo(promotion)">
+              <span class="glyphicon glyphicon-plus"></span> Add Promo
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="table table-hover promo-table">
+    <h4>Seafood</h4>
+      <thead class="table table-inverse" >
+        <th>Product Name</th>
+        <th>Regular Price</th>
+        <th>Sale Price</th>
+        <th>Sale Valid Through</th>
+        <th>Find It Here!</th>
+      </thead>
+      <tbody  ng-repeat="promotion in promotions | filter: searchText.search" ng-if="promotion.category === 'seafood'">
+        <tr>
+          <td width="25%">{{promotion.name}}</td>
+          <td class="text-muted">{{promotion.reg_price | currency}}</td>
+          <td class="text-success"><em><strong>{{promotion.discount_price | currency}}</strong></em></td>
+          <td class="text-danger"><strong>{{promotion.promo_end}}</strong></td>
+          <td>{{promotion.store}}
+            <button type="button" class="btn btn-primary btn-sm pull-right" ng-click="savePromo(promotion)">
+              <span class="glyphicon glyphicon-plus"></span> Add Promo
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="table table-hover promo-table">
+    <h4>Baked Goods</h4>
+      <thead class="table table-inverse" >
+        <th>Product Name</th>
+        <th>Regular Price</th>
+        <th>Sale Price</th>
+        <th>Sale Valid Through</th>
+        <th>Find It Here!</th>
+      </thead>
+      <tbody  ng-repeat="promotion in promotions | filter: searchText.search" ng-if="promotion.category === 'baked goods'">
+        <tr>
+          <td width="25%">{{promotion.name}}</td>
+          <td class="text-muted">{{promotion.reg_price | currency}}</td>
+          <td class="text-success"><em><strong>{{promotion.discount_price | currency}}</strong></em></td>
+          <td class="text-danger"><strong>{{promotion.promo_end}}</strong></td>
+          <td>{{promotion.store}}
+            <button type="button" class="btn btn-primary btn-sm pull-right" ng-click="savePromo(promotion)">
+              <span class="glyphicon glyphicon-plus"></span> Add Promo
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="table table-hover promo-table">
+    <h4>Produce</h4>
+      <thead class="table table-inverse" >
+        <th>Product Name</th>
+        <th>Regular Price</th>
+        <th>Sale Price</th>
+        <th>Sale Valid Through</th>
+        <th>Find It Here!</th>
+      </thead>
+      <tbody  ng-repeat="promotion in promotions | filter: searchText.search" ng-if="promotion.category === 'produce'">
+        <tr>
+          <td width="25%">{{promotion.name}}</td>
+          <td class="text-muted">{{promotion.reg_price | currency}}</td>
+          <td class="text-success"><em><strong>{{promotion.discount_price | currency}}</strong></em></td>
+          <td class="text-danger"><strong>{{promotion.promo_end}}</strong></td>
+          <td>{{promotion.store}}
+            <button type="button" class="btn btn-primary btn-sm pull-right" ng-click="savePromo(promotion)">
+              <span class="glyphicon glyphicon-plus"></span> Add Promo
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="table table-hover promo-table">
+    <h4>Condiments</h4>
+      <thead class="table table-inverse" >
+        <th>Product Name</th>
+        <th>Regular Price</th>
+        <th>Sale Price</th>
+        <th>Sale Valid Through</th>
+        <th>Find It Here!</th>
+      </thead>
+      <tbody  ng-repeat="promotion in promotions | filter: searchText.search" ng-if="promotion.category === 'condiments'">
+        <tr>
+          <td width="25%">{{promotion.name}}</td>
           <td class="text-muted">{{promotion.reg_price | currency}}</td>
           <td class="text-success"><em><strong>{{promotion.discount_price | currency}}</strong></em></td>
           <td class="text-danger"><strong>{{promotion.promo_end}}</strong></td>
@@ -29,3 +117,5 @@
     </table>
   </div>
 </div>
+
+<a href="javascript:" id="return-to-top"><i class="icon-chevron-up"></i></a>
