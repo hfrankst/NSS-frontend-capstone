@@ -5,12 +5,12 @@ app.controller('ProfileCtrl', function($scope, SearchTermData, ProductFactory, A
 	let user = AuthFactory.getUser();
 	let mymap = L.map('mapid').setView([36.1325, -86.7566], 15);
 
-	// Creates a red marker with the coffee icon
-	 var redMarker = L.AwesomeMarkers.icon({
-	   markerColor: 'green'
-	 });
+	var redMarker = L.AwesomeMarkers.icon({
+		icon: 'user-circle',
+		markerColor: 'green'
+	});
 
-	 L.marker([36.1325, -86.7566], {icon: redMarker}).addTo(mymap).bindPopup('<h5><strong>You Are Here!</strong></h5>');
+	 // L.marker([36.1325, -86.7566], {icon: redMarker}).addTo(mymap).bindPopup('<h5><strong>You Are Here!</strong></h5>');
 
 	let leaflet = () => {
 
@@ -45,7 +45,8 @@ app.controller('ProfileCtrl', function($scope, SearchTermData, ProductFactory, A
 		});
 	};
 	userPromos();
-
+////////////////////////////////////////
+/////////////find a way to delete the marker on the map when the saved promo is deleted
 	$scope.removePromo = (savedPromoId) => {
 		console.log("delete in factory", savedPromoId);
 		ProductFactory.deleteUsersPromo(savedPromoId)
