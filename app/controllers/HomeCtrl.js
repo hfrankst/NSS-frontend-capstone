@@ -28,6 +28,20 @@ app.controller('HomeCtrl', function($scope, SearchTermData, ProductFactory, Auth
 			phone: promo.phone
 		};
 		ProductFactory.saveUsersPromos(savedPromo);
+
+		$.notify({
+			icon: 'glyphicon glyphicon-check',
+			message: 'Saved to Your List!'
+		},{
+			type: 'success',
+			delay: 1000,
+			animate: {
+				enter: 'animated flipInY',
+				exit: 'animated flipOutX'
+			}	
+		});
+
+
 	};
 /////////////////////////////////////////////////////////
 /////////////////Stretch for later:

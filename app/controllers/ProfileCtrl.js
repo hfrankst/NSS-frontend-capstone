@@ -10,7 +10,7 @@ app.controller('ProfileCtrl', function($scope, SearchTermData, ProductFactory, A
 		markerColor: 'green'
 	});
 
-	 L.marker([36.1325, -86.7566], {icon: redMarker}).addTo(mymap).bindPopup('<h5><strong>You Are Here!</strong></h5>');
+	 // L.marker([36.1325, -86.7566], {icon: redMarker}).addTo(mymap).bindPopup('<h5><strong>You Are Here!</strong></h5>');
 
 	let leaflet = () => {
 
