@@ -1,15 +1,15 @@
 <div class="container">
-  <div class="row" >
-    <table class="table table-hover promo-table">
-      <h4>Dairy</h4>
+  <div class="row" ng-repeat="item in finalArray | filter: searchText.search">
+    <table class="table table-hover promo-table" >
+      <h4 class="capitalize">{{item.heading}}</h4>
       <thead class="table table-inverse" >
-        <th>Product Name</th>
-        <th>Regular Price</th>
-        <th>Sale Price</th>
-        <th>Sale Valid Through</th>
-        <th>Find It Here!</th>
+        <th>{{item.name}}</th>
+        <th>{{item.reg_price}}</th>
+        <th>{{item.sale}}</th>
+        <th>{{item.date}}</th>
+        <th>{{item.location}}</th>
       </thead>
-      <tbody  ng-repeat="promotion in promotions | filter: searchText.search" ng-if="promotion.category === 'dairy'">
+      <tbody  ng-repeat="promotion in item.promotions | filter: searchText.search">
         <tr>
           <td width="25%">{{promotion.name}}</td>
           <td class="text-muted">{{promotion.reg_price | currency}}</td>
@@ -23,7 +23,7 @@
         </tr>
       </tbody>
     </table>
-    <table class="table table-hover promo-table">
+    <!-- <table class="table table-hover promo-table">
     <h4>Seafood</h4>
       <thead class="table table-inverse" >
         <th>Product Name</th>
@@ -114,7 +114,7 @@
           </td>
         </tr>
       </tbody>
-    </table>
+    </table> -->
   </div>
 </div>
 
