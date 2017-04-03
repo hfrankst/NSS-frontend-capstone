@@ -109,6 +109,9 @@ table {
 	background-color: white;
 }
 
+.capitalize {
+	text-transform: capitalize;
+}
 
 /*Modal Styling*/
 

@@ -3,16 +3,80 @@
 app.controller('HomeCtrl', function($scope, SearchTermData, ProductFactory, AuthFactory){
 	$scope.searchText = SearchTermData;
 	let user = AuthFactory.getUser();
+	let labels = ["dairy", "seafood", "baked goods", "produce", "condiments"];
 
-	//this gets all available promos and loads immediately on the promotions page
+	//this gets all available promos and loads immediately on the promotions page, organizing into tables based on product category
 	let getPromos = () => {
 			ProductFactory.getAllPromos()
 			.then((promodata) => {
 				$scope.promotions = promodata;
-				console.log("in the getPromos function", promodata); 
-			});               
+				// console.log("promodata", promodata);
+					let table = [];
+					for(var i = 0; i < promodata.length; i++){
+					let table_head = {
+						title: promodata[i].category,
+						name: "Product Name",
+						reg_price: "Regular Price",
+						sale: "Discount Price",
+						date: "Sale Valid Through",
+						location: "Find It Here!"
+					};
+					table.push(table_head);
+				$scope.tables = table;
+				};
+			}); 
 	};
 	getPromos();
+
+	//this function will get 'snapshots' of the promos that have matching categories, setting me up to use them in the tables
+	let getCats = (label) => {
+		return new Promise((resolve, reject) => {
+		firebase.database().ref('products').orderByChild('category').equalTo(label).once("value").then(
+			(snapshot) => {
+				resolve(snapshot.val());	
+			}
+			);
+		});
+	};
+
+	let catPromises = labels.map((label) => {
+		getCats(label);
+	});
+
+	Promise.all(labels.map((label) => getCats(label))).then(
+		(myArray) => {
+			// console.log("myArray", myArray);
+		let myTables = [];
+		myTables.push(myArray[0]);
+
+		for(var i = 1; i < myArray.length; i++){
+			let tablePromos = myArray[i];
+			let tableArray = [];
+			Object.keys(tablePromos).forEach((key) => {
+				tableArray.push(tablePromos[key]);
+			});
+			myTables.push(tableArray);
+		}
+		// console.log("myTables", myTables);
+		$scope.myTables = myTables;
+		let finalArray = [];
+		myTables.forEach((promo) => {
+			// console.log("promo", promo);
+			let table = {
+				heading: promo[0]["category"],
+				name: "Product Name",
+				reg_price: "Regular Price",
+				sale: "Discount Price",
+				date: "Sale Valid Through",
+				location: "Find It Here!",
+				promotions: promo
+			};
+			finalArray.push(table);
+			console.log("finally", finalArray);
+		$scope.finalArray = finalArray;
+		$scope.$apply();
+		});
+	});
 
 	//this function is building a new object to be stored by uid, so that the user can load his/her saved promos on the profile page
 	$scope.savePromo = (promo) => {
@@ -43,11 +107,6 @@ app.controller('HomeCtrl', function($scope, SearchTermData, ProductFactory, Auth
 
 
 	};
-/////////////////////////////////////////////////////////
-/////////////////Stretch for later:
-////////////use for loops to build objects of promos, with each iteration test for the category value and store promo into corresponding objects.  These objects then need to be fed into the ng-repeat to make the table.  Figure out how to create tables without re-creating the <thead> with every iteration. Do I build the objects in this controller, like the above object? If so, how do I feed all the objects into the partial and the one instance of the ng-repeat? How do I effectively take advantage of the ng-if to control the tables? I think it could be used as part of the "testing" of the category values, but I don't know how that would look.  
-
-
 
 	// ===== Scroll to Top...taken from CodePen ==== 
 	$(window).scroll(function() {
