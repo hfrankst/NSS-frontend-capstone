@@ -56,6 +56,7 @@ app.factory('ProductFactory', function($q, $http, FBCreds){
 	};
 
 	let deleteUsersPromo = (savedPromoId) => {
+		console.log("deleted");
 		//this function deletes a specific promo from the user's list of saved promos
 		return $q((resolve, reject) => {
 			$http.delete(`${FBCreds.databaseURL}/users/${savedPromoId}.json`)

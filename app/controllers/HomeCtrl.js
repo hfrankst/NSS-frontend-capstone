@@ -5,30 +5,8 @@ app.controller('HomeCtrl', function($scope, SearchTermData, ProductFactory, Auth
 	let user = AuthFactory.getUser();
 	let labels = ["dairy", "seafood", "baked goods", "produce", "condiments"];
 
-	//this gets all available promos and loads immediately on the promotions page, organizing into tables based on product category
-	let getPromos = () => {
-			ProductFactory.getAllPromos()
-			.then((promodata) => {
-				$scope.promotions = promodata;
-				// console.log("promodata", promodata);
-					let table = [];
-					for(var i = 0; i < promodata.length; i++){
-					let table_head = {
-						title: promodata[i].category,
-						name: "Product Name",
-						reg_price: "Regular Price",
-						sale: "Discount Price",
-						date: "Sale Valid Through",
-						location: "Find It Here!"
-					};
-					table.push(table_head);
-				$scope.tables = table;
-				};
-			}); 
-	};
-	getPromos();
-
 	//this function will get 'snapshots' of the promos that have matching categories, setting me up to use them in the tables
+	//what's really going on: a call is made to firebase to reference (.ref()) the products collection in the database, then it is ordering the items by the child property category. It then looks at the value of the category, passed in as "label", and groups all like categories together, resulting in a snapshot of the category groups
 	let getCats = (label) => {
 		return new Promise((resolve, reject) => {
 		firebase.database().ref('products').orderByChild('category').equalTo(label).once("value").then(
@@ -38,14 +16,13 @@ app.controller('HomeCtrl', function($scope, SearchTermData, ProductFactory, Auth
 			);
 		});
 	};
-
+	//this is where the label value gets passed to the getCats function
 	let catPromises = labels.map((label) => {
 		getCats(label);
 	});
-
+	//this promise does a lot..it reformats the objects coming back from Firebase and pushes them into arrays so that ng-repeat can work
 	Promise.all(labels.map((label) => getCats(label))).then(
 		(myArray) => {
-			// console.log("myArray", myArray);
 		let myTables = [];
 		myTables.push(myArray[0]);
 
@@ -57,11 +34,9 @@ app.controller('HomeCtrl', function($scope, SearchTermData, ProductFactory, Auth
 			});
 			myTables.push(tableArray);
 		}
-		// console.log("myTables", myTables);
 		$scope.myTables = myTables;
 		let finalArray = [];
 		myTables.forEach((promo) => {
-			// console.log("promo", promo);
 			let table = {
 				heading: promo[0]["category"],
 				name: "Product Name",
@@ -72,7 +47,6 @@ app.controller('HomeCtrl', function($scope, SearchTermData, ProductFactory, Auth
 				promotions: promo
 			};
 			finalArray.push(table);
-			console.log("finally", finalArray);
 		$scope.finalArray = finalArray;
 		$scope.$apply();
 		});
@@ -80,7 +54,6 @@ app.controller('HomeCtrl', function($scope, SearchTermData, ProductFactory, Auth
 
 	//this function is building a new object to be stored by uid, so that the user can load his/her saved promos on the profile page
 	$scope.savePromo = (promo) => {
-		console.log("savePromo");
 		var savedPromo = {
 			name: promo.name,
 			store: promo.store,
