@@ -10,8 +10,6 @@ app.controller('ProfileCtrl', function($scope, SearchTermData, ProductFactory, A
 		markerColor: 'green'
 	});
 
-	 // L.marker([36.1325, -86.7566], {icon: redMarker}).addTo(mymap).bindPopup('<h5><strong>You Are Here!</strong></h5>');
-
 	let leaflet = () => {
 
 		L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v10/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaGZyYW5rc3QiLCJhIjoiY2owY3QzODNpMDUxMDMybGMydnBxeGdncCJ9.NQrhhmJVuy175EbL-IsbJw', {

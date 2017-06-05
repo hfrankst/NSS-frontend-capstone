@@ -3,7 +3,7 @@
 app.controller('HomeCtrl', function($scope, SearchTermData, ProductFactory, AuthFactory){
 	$scope.searchText = SearchTermData;
 	let user = AuthFactory.getUser();
-	let labels = ["dairy", "seafood", "baked goods", "produce", "condiments"];
+	let labels = ["dairy", "seafood", "baked goods", "produce", "condiments", "meat"];
 
 	//this function will get 'snapshots' of the promos that have matching categories, setting me up to use them in the tables
 	//what's really going on: a call is made to firebase to reference (.ref()) the products collection in the database, then it is ordering the items by the child property category. It then looks at the value of the category, passed in as "label", and groups all like categories together, resulting in a snapshot of the category groups
